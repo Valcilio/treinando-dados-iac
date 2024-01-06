@@ -7,13 +7,13 @@ include "envcommon" {
 }
 
 locals {
-    env_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
-    env = local.env_vars.locals.environment
-    
-    name = "zomato-ec2-train"
+  env_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
+  env      = local.env_vars.locals.environment
+
+  name = "zomato-ec2-train"
 }
 
 inputs = {
-    name = "ecr-${local.env}-${local.name}"
-    mutability = "MUTABLE"
+  name       = "ecr-${local.env}-${local.name}"
+  mutability = "MUTABLE"
 }

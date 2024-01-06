@@ -3,10 +3,10 @@ include "root" {
 }
 
 locals {
-    env_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
-    env = local.env_vars.locals.environment
+  env_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
+  env      = local.env_vars.locals.environment
 
-    name = "zomato-lambda-predict"
+  name = "zomato-lambda-predict"
 }
 
 include "envcommon" {
@@ -14,6 +14,6 @@ include "envcommon" {
 }
 
 inputs = {
-    name = "ecr-${local.env}-${local.name}"
-    mutability = "MUTABLE"
+  name       = "ecr-${local.env}-${local.name}"
+  mutability = "MUTABLE"
 }
