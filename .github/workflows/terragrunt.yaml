@@ -4,6 +4,9 @@ on:
   pull_request:
     branches:
       - master
+  push:
+    branches:
+      - master
 jobs:
   Terragrunt:
     uses: Valcilio/github_workflows/.github/workflows/terragrunt_prd.yaml@main
