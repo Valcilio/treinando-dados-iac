@@ -3,10 +3,10 @@ name: Terragrunt
 on:
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
 jobs:
   Terragrunt:
     uses: Valcilio/github_workflows/.github/workflows/terragrunt_prd.yaml@main
