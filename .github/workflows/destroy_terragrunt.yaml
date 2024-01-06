@@ -1,16 +1,10 @@
 ---
 name: Terragrunt
-on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
-
+on: [workflow_dispatch]
+  
 jobs:
-  Terragrunt:
-    uses: Valcilio/github_workflows/.github/workflows/terragrunt_prd.yaml@main
+  Destroy:
+    uses: Valcilio/github_workflows/.github/workflows/destroy_terragrunt.yaml@main
     secrets:
       TF_LOG: INFO
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
