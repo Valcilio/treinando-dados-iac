@@ -3,10 +3,10 @@ include "root" {
 }
 
 locals {
-  env_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
+  env_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
   env      = local.env_vars.locals.environment
 
-  name = "zomato-lambda-predict"
+  name = "zomato-lambda-train"
 }
 
 include "envcommon" {
