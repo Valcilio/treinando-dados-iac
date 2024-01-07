@@ -10,11 +10,11 @@ locals {
   env_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
   env      = local.env_vars.locals.environment
 
-  name = "zomato_train_lambda_role"
+  name = "zomato-predict-lambda"
 }
 
 inputs = {
-  role_name = "ecr-${local.env}-${local.name}"
+  role_name = "role-${local.env}-${local.name}"
   policy_permissions = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -43,18 +43,8 @@ inputs = {
         Resource = "*"
       },
       {
-        Sid = "EC2FullAccess"
-        Action = [
-          "ec2:*"
-        ]
-        Effect   = "Allow"
-        Resource = "*"
-      },
-      {
-        Sid = "IAMFullAccess"
-        Action = [
-          "iam:*"
-        ]
+        Sid      = "ECRFullAccess"
+        Action   = ["ecr:*"]
         Effect   = "Allow"
         Resource = "*"
       }
