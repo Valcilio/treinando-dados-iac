@@ -14,7 +14,7 @@ locals {
 }
 
 inputs = {
-  name       = "ecr-${local.env}-${local.name}"
-  mutability = "MUTABLE"
+  name         = "ecr-${local.env}-${local.name}"
+  mutability   = "MUTABLE"
   force_delete = true
 }

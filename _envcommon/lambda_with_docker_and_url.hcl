@@ -7,10 +7,10 @@ locals {
   region      = local.region_vars.locals.region
 
   account_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
-  account      = local.region_vars.locals.aws_account_id
+  account_id   = local.account_vars.locals.aws_account_id
 }
 
 inputs = {
-  aws_region = local.region
-  aws_account_id = local.account
+  aws_region     = local.region
+  aws_account_id = local.account_id
 }
